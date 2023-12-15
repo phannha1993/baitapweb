@@ -3,6 +3,10 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json());
+
+
+
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to contact book application." });
 
@@ -28,10 +32,12 @@ app.use((req, res, next) => {
 // define error-handling middleware last, after other app.use() and routes calls
 
 app.use((err, req, res, next) => {
-// Middleware xử lý lỗi tập trung.
-// Trong các đoạn code xử lý ở các route, gọi next(error) sẽ chuyển về middleware xử lý lỗi này
+    // Middleware xử lý lỗi tập trung.
+    // Trong các đoạn code xử lý ở các route, gọi next(error) sẽ chuyển về middleware xử lý lỗi này
     return res.status(error.statusCode || 500).json({
-        message: error.message || "Internal Server Error",
+        // message: error.message || "Resource not found",
+        message: error.message,
+
     });
 });
 
