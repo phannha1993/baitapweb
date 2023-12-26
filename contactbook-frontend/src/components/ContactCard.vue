@@ -9,7 +9,7 @@ export default {
   <div>
     <div class="p-1">
       <strong>Tên:</strong>
-      {{ contact.name }}
+       {{ contact.name }}
     </div>
     <div class="p-1">
       <strong>E-mail:</strong>
